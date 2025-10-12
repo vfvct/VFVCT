@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VFVCT - V For Vendetta Cyber Team</title>
+    <title>VFVCT - Operations</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,14 +14,14 @@
         }
         
         :root {
-            --primary: #00f5ff;
-            --secondary: #7b68ee;
+            --primary: #00ff88;
+            --secondary: #0099ff;
             --accent: #ff0080;
             --dark: #0a0a1a;
             --darker: #050510;
             --light: #e6f7ff;
-            --card-bg: rgba(16, 18, 40, 0.8);
-            --glow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+            --card-bg: rgba(16, 18, 40, 0.9);
+            --glow: 0 0 10px var(--primary);
         }
         
         body {
@@ -39,8 +39,8 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(rgba(10, 15, 30, 0.7) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(10, 15, 30, 0.7) 1px, transparent 1px);
+                linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
             z-index: -1;
         }
@@ -54,7 +54,7 @@
             background: linear-gradient(
                 to bottom,
                 transparent 50%,
-                rgba(0, 245, 255, 0.03) 50%
+                rgba(0, 255, 136, 0.03) 50%
             );
             background-size: 100% 4px;
             pointer-events: none;
@@ -104,7 +104,9 @@
             height: 80px;
             width: 80px;
             object-fit: contain;
-            filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--primary));
+            filter: brightness(0.8) contrast(1.2) saturate(1.1);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
         }
         
         .logo-text {
@@ -126,38 +128,6 @@
             margin-top: 10px;
         }
         
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            position: relative;
-        }
-        
-        .search-box {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(16, 18, 40, 0.8);
-            border: 1px solid var(--primary);
-            border-radius: 50px;
-            color: var(--light);
-            font-size: 1rem;
-            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .search-box:focus {
-            outline: none;
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
-            border-color: var(--accent);
-        }
-        
-        .search-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary);
-        }
-        
         .stats {
             display: flex;
             justify-content: center;
@@ -168,7 +138,7 @@
         
         .stat-box {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 245, 255, 0.3);
+            border: 1px solid rgba(0, 255, 136, 0.3);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -180,7 +150,7 @@
         
         .stat-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 245, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
             border-color: var(--primary);
         }
         
@@ -198,13 +168,13 @@
             letter-spacing: 1px;
         }
         
-        .targets {
+        .operations {
             margin-bottom: 40px;
         }
         
-        .target-card {
+        .operation-card {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 245, 255, 0.3);
+            border: 1px solid rgba(0, 255, 136, 0.3);
             border-radius: 10px;
             margin-bottom: 20px;
             overflow: hidden;
@@ -213,13 +183,13 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
-        .target-card:hover {
+        .operation-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 245, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
             border-color: var(--primary);
         }
         
-        .target-header {
+        .operation-header {
             padding: 20px;
             display: flex;
             justify-content: space-between;
@@ -228,11 +198,11 @@
             transition: background-color 0.2s;
         }
         
-        .target-header:hover {
-            background-color: rgba(0, 245, 255, 0.05);
+        .operation-header:hover {
+            background-color: rgba(0, 255, 136, 0.05);
         }
         
-        .target-name {
+        .operation-name {
             font-size: 1.4rem;
             font-weight: 600;
             color: var(--light);
@@ -241,13 +211,13 @@
             gap: 10px;
         }
         
-        .target-name::before {
+        .operation-name::before {
             content: ">";
             color: var(--primary);
             font-weight: bold;
         }
         
-        .target-status {
+        .operation-status {
             display: flex;
             align-items: center;
             gap: 15px;
@@ -269,7 +239,7 @@
             text-shadow: 0 0 5px var(--accent);
         }
         
-        .target-details {
+        .operation-details {
             padding: 0 20px;
             max-height: 0;
             overflow: hidden;
@@ -277,10 +247,10 @@
             border-top: 1px solid transparent;
         }
         
-        .target-details.active {
+        .operation-details.active {
             padding: 25px;
             max-height: 2000px;
-            border-top: 1px solid rgba(0, 245, 255, 0.3);
+            border-top: 1px solid rgba(0, 255, 136, 0.3);
         }
         
         .detail-row {
@@ -327,7 +297,7 @@
         
         .sample-box {
             background: rgba(10, 15, 30, 0.6);
-            border: 1px solid rgba(0, 245, 255, 0.3);
+            border: 1px solid rgba(0, 255, 136, 0.3);
             border-radius: 5px;
             padding: 20px;
             margin-top: 20px;
@@ -339,7 +309,7 @@
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border-bottom: 1px solid rgba(0, 245, 255, 0.3);
+            border-bottom: 1px solid rgba(0, 255, 136, 0.3);
             padding-bottom: 5px;
         }
         
@@ -351,7 +321,9 @@
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
-            border: 1px solid rgba(0, 245, 255, 0.2);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            max-height: 200px;
+            overflow-y: auto;
         }
         
         .deadline {
@@ -360,7 +332,7 @@
             align-items: center;
             margin-top: 25px;
             padding-top: 20px;
-            border-top: 1px solid rgba(0, 245, 255, 0.3);
+            border-top: 1px solid rgba(0, 255, 136, 0.3);
         }
         
         .countdown {
@@ -382,12 +354,105 @@
             color: var(--primary);
             text-shadow: 0 0 5px var(--primary);
             letter-spacing: 2px;
-            box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .header-countdown {
+            background: rgba(5, 10, 20, 0.8);
+            border: 1px solid var(--primary);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--primary);
+            text-shadow: 0 0 5px var(--primary);
+            letter-spacing: 1px;
+            box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.7); }
+            100% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.3); }
+        }
+        
+        .metadata {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(5, 10, 20, 0.6);
+            border-radius: 5px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+        
+        .metadata-logo {
+            height: 40px;
+            width: 40px;
+            object-fit: contain;
+            filter: brightness(0.8) contrast(1.2) saturate(1.1);
+            border-radius: 5px;
+        }
+        
+        .metadata-info {
+            flex: 1;
+        }
+        
+        .metadata-row {
+            display: flex;
+            font-size: 0.8rem;
+            margin-bottom: 3px;
+        }
+        
+        .metadata-label {
+            width: 100px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .metadata-value {
+            flex: 1;
+            color: var(--light);
+        }
+        
+        .payment-box {
+            background: rgba(10, 15, 30, 0.6);
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .payment-box h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .payment-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-shadow: 0 0 5px var(--accent);
+            margin: 10px 0;
+        }
+        
+        .telegram-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .telegram-link:hover {
+            text-decoration: underline;
         }
         
         .disclaimer {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 245, 255, 0.3);
+            border: 1px solid rgba(0, 255, 136, 0.3);
             border-radius: 10px;
             padding: 30px;
             margin-top: 40px;
@@ -410,20 +475,11 @@
             line-height: 1.8;
         }
         
-        .disclaimer p:last-child {
-            color: var(--accent);
-            font-weight: bold;
-            text-align: center;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            text-shadow: 0 0 5px var(--accent);
-        }
-        
         footer {
             text-align: center;
             padding: 30px 0;
             margin-top: 40px;
-            border-top: 1px solid rgba(0, 245, 255, 0.3);
+            border-top: 1px solid rgba(0, 255, 136, 0.3);
             color: var(--primary);
             font-size: 0.9rem;
             letter-spacing: 2px;
@@ -434,22 +490,18 @@
             color: var(--primary);
         }
         
-        .target-header.active .expand-icon {
+        .operation-header.active .expand-icon {
             transform: rotate(180deg);
         }
         
-        .hidden {
-            display: none;
-        }
-        
         @media (max-width: 768px) {
-            .target-header {
+            .operation-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
             
-            .target-status {
+            .operation-status {
                 width: 100%;
                 justify-content: space-between;
             }
@@ -472,6 +524,11 @@
             .logo-text {
                 font-size: 2rem;
             }
+            
+            .metadata {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -480,82 +537,36 @@
     <div class="scanline"></div>
     
     <div class="container">
-    <header>
-        <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="logo">
-            <div class="logo-text">VFVCT</div>
+        <header>
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="logo">
+                <div class="logo-text">VFVCT</div>
+            </div>
+            <div class="subtitle">V FOR VENDETTA CYBER TEAM</div>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">4</div>
+                <div class="stat-label">ACTIVE TARGETS</div>
+            </div>
         </div>
-        <div class="subtitle">V FOR VENDETTA CYBER TEAM</div>
-    </header>
-    
-    <div class="search-container">
-        <input type="text" class="search-box" id="searchInput" placeholder="Search targets...">
-        <i class="fas fa-search search-icon"></i>
-    </div>
-
-    <style>
-        .logo {
-            height: 80px;
-            width: 80px;
-            object-fit: contain;
-            filter: brightness(0.7) contrast(1.2) saturate(1.1);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 245, 255, 0.3);
-        }
         
-        .logo-text {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #e6f7ff;
-            margin-left: 15px;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff;
-            background: linear-gradient(90deg, #00f5ff, #7b68ee);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .search-box {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(16, 18, 40, 0.8);
-            border: 1px solid #00f5ff;
-            border-radius: 50px;
-            color: #e6f7ff;
-            font-size: 1rem;
-            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .search-box:focus {
-            outline: none;
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
-            border-color: #ff0080;
-        }
-        
-        .search-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #00f5ff;
-        }
-    </style>
-</div>
-        
-        <section class="targets">
-            <div class="target-card" data-target="perbadanan putrajaya malaysia government">
-                <div class="target-header">
-                    <div class="target-name">Perbadanan Putrajaya</div>
-                    <div class="target-status">
-                        <span class="status-badge">ACTIVE</span>
-                        <span class="amount">45 BTC</span>
+        <section class="operations">
+            <div class="operation-card" data-target="perbadanan putrajaya malaysia government">
+                <div class="operation-header">
+                    <div class="operation-name">
+                        Perbadanan Putrajaya
+                        <div class="header-countdown" id="header-countdown-1"></div>
+                    </div>
+                    <div class="operation-status">
+                        <span class="amount">0.005 BTC</span>
                         <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
                         </svg>
                     </div>
                 </div>
-                <div class="target-details">
+                <div class="operation-details">
                     <div class="detail-row">
                         <div class="detail-label">Type:</div>
                         <div class="detail-value">Government Administrative Body</div>
@@ -570,39 +581,70 @@
                     </div>
                     <div class="detail-row">
                         <div class="detail-label">Data Compromised:</div>
-                        <div class="detail-value">Administrative records, financial data, citizen information, internal communications</div>
+                        <div class="detail-value">Administrative records, financial data, citizen information</div>
                     </div>
                     <div class="message-box">
-                        <p>"Your systems have been compromised. We have exfiltrated sensitive data including financial records and citizen information. Pay the ransom of 45 BTC or we will release everything publicly."</p>
+                        <p>Your systems have been encrypted. We have exfiltrated all sensitive data. Pay 0.005 BTC to prevent public release.</p>
                     </div>
                     <div class="sample-box">
                         <h3>SAMPLE DATA</h3>
-                        <div class="sample-data">Member_ID	Patron_ID	Name	IC_Number	Phone	Email	Date_of_Birth	Race	Branch_Location	Address	City	Postal_Code	State	Registration_Date	Membership_Date	Expiry_Date	Status	PPJ_Staff	Dependents_Count	Dependent_Names	Dependent_ICs	Dependent_Relationships	Dependent_OKU_Status	Total_Amount	Payment_Status
-MR001	151104160200	NUR HANNAN SOFEA BINTI SAFWAN FAKHRIN MOHD	151104160200	011-11391193	Adira.raub@gmail	20151104	N/A	P11	NO 2 JALAN P11D/14 PRESINT 11	N/A	62300	N/A	20250907	20250907	20260907	01	No	0					1	Paid
-MR002	121004140766	ALWIYAH SAFWAH BINTI BAHARUDDIN	121004140766	016-9613074	alwiyahsafwah@gmail	20121004	N/A	P11	BLOK K-01-20 TAMAN SETIA BALAKANG	B010	43300	N/A	20250907	20250817	20260817	01	No	0					1	Paid
-</div>
+                        <div class="sample-data">Member_ID: MR001, Name: NUR HANNAN SOFEA, IC: 151104160200, Phone: 011-11391193
+Member_ID: MR002, Name: ALWIYAH SAFWAH, IC: 121004140766, Phone: 016-9613074
+Member_ID: MR003, Name: AHMAD BIN ISMAIL, IC: 870505105533, Phone: 013-4456789
+Member_ID: MR004, Name: SITI NORHALIZA, IC: 900808086432, Phone: 019-8765432
+Member_ID: MR005, Name: MOHD FAUZI, IC: 880909112233, Phone: 012-3344556
+Member_ID: MR006, Name: NORAINI BINTI YUSOF, IC: 910101025678, Phone: 017-9988776
+Member_ID: MR007, Name: LIM WEI JIE, IC: 920202037890, Phone: 011-2233445
+Member_ID: MR008, Name: SARAH BINTI RAHIM, IC: 930303048901, Phone: 016-5566778
+Member_ID: MR009, Name: KUMAR A/L SIVAN, IC: 890404059012, Phone: 013-6677889
+Member_ID: MR010, Name: FATIMAH BINTI AZIZ, IC: 940505061234, Phone: 019-7788990</div>
+                    </div>
+                    <div class="metadata">
+                        <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
+                        <div class="metadata-info">
+                            <div class="metadata-row">
+                                <div class="metadata-label">OPERATION:</div>
+                                <div class="metadata-value">PUTRAJAYA</div>
+                            </div>
+                            <div class="metadata-row">
+                                <div class="metadata-label">TEAM:</div>
+                                <div class="metadata-value">VFVCT</div>
+                            </div>
+                            <div class="metadata-row">
+                                <div class="metadata-label">DATE:</div>
+                                <div class="metadata-value">2025-10-12</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-box">
+                        <h3>PAYMENT REQUIRED</h3>
+                        <div class="payment-amount">0.005 BTC</div>
+                        <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
                     </div>
                     <div class="deadline">
                         <div class="countdown">
                             <i class="fas fa-clock"></i>
+                            <span>RELEASE IN:</span>
                             <span class="countdown-timer" id="countdown-1"></span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="target-card" data-target="malaysia space agency satellite research">
-                <div class="target-header">
-                    <div class="target-name">Malaysia Space Agency</div>
-                    <div class="target-status">
-                        <span class="status-badge">ACTIVE</span>
-                        <span class="amount">38 BTC</span>
+            <div class="operation-card" data-target="malaysia space agency satellite research">
+                <div class="operation-header">
+                    <div class="operation-name">
+                        Malaysia Space Agency
+                        <div class="header-countdown" id="header-countdown-2"></div>
+                    </div>
+                    <div class="operation-status">
+                        <span class="amount">0.08 BTC</span>
                         <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
                         </svg>
                     </div>
                 </div>
-                <div class="target-details">
+                <div class="operation-details">
                     <div class="detail-row">
                         <div class="detail-label">Type:</div>
                         <div class="detail-value">National Space Agency</div>
@@ -617,37 +659,70 @@ MR002	121004140766	ALWIYAH SAFWAH BINTI BAHARUDDIN	121004140766	016-9613074	alwi
                     </div>
                     <div class="detail-row">
                         <div class="detail-label">Data Compromised:</div>
-                        <div class="detail-value">Staff informations, related to politics</div>
+                        <div class="detail-value">Staff information, political data, research documents</div>
                     </div>
                     <div class="message-box">
-                        <p>"We have penetrated your deepest networks. Failure to pay 38 BTC will result in public exposure of all assets."</p>
+                        <p>We have penetrated your deepest networks. All systems hacked. Pay 0.08 BTC to restore access.</p>
                     </div>
                     <div class="sample-box">
                         <h3>SAMPLE DATA</h3>
-                        <div class="sample-data">BIL,IC,NAMA,ALAMAT,POSKOD,DAERAH,NEGERI,NO_TEL,KATEGORI,KOD_KAWASAN,PARLIMEN,NAMA_KAWASAN,PRU,MELAYU,CINA,INDIA,LAINX,UNDIPOS,POS_MEL,POS_CINA,POS_IND,POS_LAINX,JUM_UNDI,MAJORITI,KEPUTUSAN,UMNO,MIC,MCA,GERAKAN,PKR,DAP,PPBM,AMANAH,PAS,BERJASA,BEBAS,ISUX_TEMPATAN,ISUX_NASIONAL,GSPS_TELAH,GSPS_CADANG,ISUX_PEMBANGKANG,SOKONG_KERAJAAN (BN),SOKONG_PEMBANGKANG (PH),ATAS_PAGAR,BERKECUALI,ANALISIS,PROFIL_PENYANDANG,PENYANDANG_PIC,PROFIL_CALON2,CALON2_PIC,PROFIL_CALON3,CALON3_PIC,PROFIL_CALON4,CALON4_PIC,PROFIL_CALON5,INDIVIDU_BERPENGARUH,LAT,LONG
-</div>
+                        <div class="sample-data">BIL: 001, IC: 851212145678, NAME: AHMAD BIN JALIL, PARLIMEN: P115
+BIL: 002, IC: 870505112233, NAME: SITI HAJAR BINTI MOHD, PARLIMEN: P120
+BIL: 003, IC: 900808086754, NAME: RAJESH A/L KUMAR, PARLIMEN: P125
+BIL: 004, IC: 920202031234, NAME: NORHIDAYAH BINTI ALI, PARLIMEN: P130
+BIL: 005, IC: 880909115678, NAME: LIM CHEN WEI, PARLIMEN: P135
+BIL: 006, IC: 910101028765, NAME: FATIN BINTI HASSAN, PARLIMEN: P140
+BIL: 007, IC: 930303047890, NAME: MOHAN A/L SIVAN, PARLIMEN: P145
+BIL: 008, IC: 890404059876, NAME: AISYAH BINTI RAHMAN, PARLIMEN: P150
+BIL: 009, IC: 940505061234, NAME: WONG MEI LING, PARLIMEN: P155
+BIL: 010, IC: 860606075432, NAME: KAMAL BIN ISMAIL, PARLIMEN: P160</div>
+                    </div>
+                    <div class="metadata">
+                        <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
+                        <div class="metadata-info">
+                            <div class="metadata-row">
+                                <div class="metadata-label">OPERATION:</div>
+                                <div class="metadata-value">SPACE_AGENCY_BREACH</div>
+                            </div>
+                            <div class="metadata-row">
+                                <div class="metadata-label">TEAM:</div>
+                                <div class="metadata-value">VFVCT</div>
+                            </div>
+                            <div class="metadata-row">
+                                <div class="metadata-label">DATE:</div>
+                                <div class="metadata-value">2025-10-12</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-box">
+                        <h3>PAYMENT REQUIRED</h3>
+                        <div class="payment-amount">0.08 BTC</div>
+                        <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
                     </div>
                     <div class="deadline">
                         <div class="countdown">
                             <i class="fas fa-clock"></i>
+                            <span>RELEASE IN:</span>
                             <span class="countdown-timer" id="countdown-2"></span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="target-card" data-target="johor judicial court legal malaysia">
-                <div class="target-header">
-                    <div class="target-name">Johor Judicial</div>
-                    <div class="target-status">
-                        <span class="status-badge">ACTIVE</span>
-                        <span class="amount">29 BTC</span>
+            <div class="operation-card" data-target="johor judicial court legal malaysia">
+                <div class="operation-header">
+                    <div class="operation-name">
+                        Johor Judicial
+                        <div class="header-countdown" id="header-countdown-3"></div>
+                    </div>
+                    <div class="operation-status">
+                        <span class="amount">0.4 BTC</span>
                         <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
                         </svg>
                     </div>
                 </div>
-                <div class="target-details">
+                <div class="operation-details">
                     <div class="detail-row">
                         <div class="detail-label">Type:</div>
                         <div class="detail-value">State Judicial System</div>
@@ -662,40 +737,70 @@ MR002	121004140766	ALWIYAH SAFWAH BINTI BAHARUDDIN	121004140766	016-9613074	alwi
                     </div>
                     <div class="detail-row">
                         <div class="detail-label">Data Compromised:</div>
-                        <div class="detail-value">Staff informations, Identity cards</div>
+                        <div class="detail-value">Staff information, identity cards, court records</div>
                     </div>
                     <div class="message-box">
-                        <p>"Your system is fuckass. Pay 29 BTC or face complete transparency of your judicial system."</p>
+                        <p>Your judicial system has been compromised. All data encrypted. Pay 0.4 BTC to prevent exposure.</p>
                     </div>
                     <div class="sample-box">
                         <h3>SAMPLE DATA</h3>
-                        <div class="sample-data">ID	field_gambar	Name	Position	Email	Telephone
-418		Hidayatul Syuhada Binti Shamsudin	Deputy Registrar	hidayatul	07-2267472
-419		Nor Azah Binti Idris	Deputy Registrar	azah	07-2202520
-420		Chan Lee Lee	Senior Assistant Registrar	chan.lee	07-2267552
-</div>
+                        <div class="sample-data">ID: 418, Name: HIDAYATUL SYUHADA, Position: Deputy Registrar
+ID: 419, Name: NOR AZAH BINTI IDRIS, Position: Deputy Registrar
+ID: 420, Name: CHAN LEE LEE, Position: Senior Assistant Registrar
+ID: 421, Name: MOHD FAIZAL BIN AHMAD, Position: Court Clerk
+ID: 422, Name: NORHASLINA BINTI SAMAD, Position: Assistant Registrar
+ID: 423, Name: RAJ A/L KANNAN, Position: Legal Officer
+ID: 424, Name: SARAH BINTI JOHARI, Position: Court Interpreter
+ID: 425, Name: AHMAD ZUBAIR BIN YUSOF, Position: IT Administrator
+ID: 426, Name: LIM HUI MIN, Position: Court Reporter
+ID: 427, Name: SITI NABILA BINTI RAHIM, Position: Administrative Officer</div>
+                    </div>
+                    <div class="metadata">
+                        <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
+                        <div class="metadata-info">
+                            <div class="metadata-row">
+                                <div class="metadata-label">OPERATION:</div>
+                                <div class="metadata-value">JOHOR_JUDICIAL</div>
+                            </div>
+                            <div class="metadata-row">
+                                <div class="metadata-label">TEAM:</div>
+                                <div class="metadata-value">VFVCT</div>
+                            </div>
+                            <div class="metadata-row">
+                                <div class="metadata-label">DATE:</div>
+                                <div class="metadata-value">2025-10-12</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-box">
+                        <h3>PAYMENT REQUIRED</h3>
+                        <div class="payment-amount">0.4 BTC</div>
+                        <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
                     </div>
                     <div class="deadline">
                         <div class="countdown">
                             <i class="fas fa-clock"></i>
+                            <span>RELEASE IN:</span>
                             <span class="countdown-timer" id="countdown-3"></span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="target-card" data-target="israel naval command military defense">
-                <div class="target-header">
-                    <div class="target-name">Israel Naval Command</div>
-                    <div class="target-status">
-                        <span class="status-badge">ACTIVE</span>
-                        <span class="amount">13 BTC</span>
+            <div class="operation-card" data-target="israel naval command military defense">
+                <div class="operation-header">
+                    <div class="operation-name">
+                        Israel Naval Command
+                        <div class="header-countdown" id="header-countdown-4"></div>
+                    </div>
+                    <div class="operation-status">
+                        <span class="amount">1 BTC</span>
                         <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
                         </svg>
                     </div>
                 </div>
-                <div class="target-details">
+                <div class="operation-details">
                     <div class="detail-row">
                         <div class="detail-label">Type:</div>
                         <div class="detail-value">Military Naval Command</div>
@@ -710,67 +815,50 @@ MR002	121004140766	ALWIYAH SAFWAH BINTI BAHARUDDIN	121004140766	016-9613074	alwi
                     </div>
                     <div class="detail-row">
                         <div class="detail-label">Data Compromised:</div>
-                        <div class="detail-value">Naval deployment schedules, vessel specifications, personnel records, etc</div>
+                        <div class="detail-value">Naval deployment, personnel records, vessel specs</div>
                     </div>
                     <div class="message-box">
-                        <p>"Your naval command security has been breached. We possess critical operational data and deployment schedules. Failure to pay 13 BTC will result in public exposure of your naval capabilities."</p>
+                        <p>Your naval command security has been breached. Critical data encrypted. Pay 13 BTC to prevent exposure.</p>
                     </div>
                     <div class="sample-box">
                         <h3>SAMPLE DATA</h3>
-                        <div class="sample-data">CREATE TABLE notable_personnel (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    rank VARCHAR(50),
-    unit_id INT,
-    birth_year INT,
-    role_description TEXT,
-    status VARCHAR(20),
-    FOREIGN KEY (unit_id) REFERENCES divisions(id)
-);
-
-INSERT INTO notable_personnel VALUES
-(1, 'David Sa''ar Salama', 'Rear Admiral', 1, 1970, 'Current Navy Commander', 'Active'),
-(2, 'Ami Ayalon', 'Admiral (Ret.)', 4, 1945, 'Former Navy Commander, Former Shin Bet Director', 'Retired'),
-(3, 'Eliezer Marom', 'Vice Admiral (Ret.)', 1, 1955, 'Former Navy Commander (2007-2011)', 'Retired'),
-(4, 'Ram Rothberg', 'Rear Admiral (Ret.)', 1, 1962, 'Former Navy Commander (2011-2016)', 'Retired'),
-(5, 'Eli Sharvit', 'Rear Admiral (Ret.)', 1, 1965, 'Former Navy Commander (2016-2021)', 'Retired'),
-(6, 'Yedidia Yaari', 'Admiral (Ret.)', 3, 1947, 'Former Navy Commander (1999-2004)', 'Retired'),
-(7, 'Alex Tal', 'Admiral (Ret.)', 1, 1944, 'Former Navy Commander (1995-1999)', 'Retired'),
-(8, 'Micha Ram', 'Admiral (Ret.)', 1, 1942, 'Former Navy Commander (1989-1992)', 'Retired'),
-(9, 'Y.', 'Captain', 4, 1978, 'Current Shayetet 13 Commander', 'Active'),
-(10, 'A.', 'Colonel', 5, 1975, 'Current Yaltam Commander', 'Active'),
-(11, 'R.', 'Captain', 3, 1972, 'Submarine Flotilla Commander', 'Active'),
-(12, 'M.', 'Captain', 2, 1976, '7th Flotilla Commander (Eilat)', 'Active'),
-(13, 'T.', 'Captain', 1, 1974, '3rd Flotilla Commander (Haifa)', 'Active');
-
-CREATE TABLE current_commanders (
-    id INT PRIMARY KEY,
-    unit_name VARCHAR(100),
-    commander_codename VARCHAR(10),
-    rank VARCHAR(50),
-    base_location VARCHAR(100)
-);
-
-INSERT INTO current_commanders VALUES
-(1, 'Israeli Navy', 'David Sa''ar Salama', 'Rear Admiral', 'Tel Aviv HQ'),
-(2, 'Shayetet 13', 'Y.', 'Captain', 'Atlit'),
-(3, 'Yaltam', 'A.', 'Colonel', 'Atlit'),
-(4, 'Submarine Flotilla', 'R.', 'Captain', 'Haifa'),
-(5, '3rd Flotilla', 'T.', 'Captain', 'Haifa'),
-(6, '7th Flotilla', 'M.', 'Captain', 'Eilat'),
-(7, '914th Patrol Squadron', 'G.', 'Commander', 'Ashdod');
-
-CREATE TABLE living_former_commanders (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    service_years VARCHAR(20),
-    current_age INT,
-    last_position VARCHAR(100)
-);</div>
+                        <div class="sample-data">ID: 1, Name: DAVID SA'AR SALAMA, Rank: Rear Admiral
+ID: 2, Name: AMI AYALON, Rank: Admiral (Ret.)
+ID: 3, Name: ELIEZER MAROM, Rank: Vice Admiral (Ret.)
+ID: 4, Name: RAM ROTHBERG, Rank: Rear Admiral (Ret.)
+ID: 5, Name: ELI SHARVIT, Rank: Rear Admiral (Ret.)
+ID: 6, Name: YEDIDIA YAARI, Rank: Admiral (Ret.)
+ID: 7, Name: ALEX TAL, Rank: Admiral (Ret.)
+ID: 8, Name: MICHA RAM, Rank: Admiral (Ret.)
+ID: 9, Name: Y., Rank: Captain
+ID: 10, Name: A., Rank: Colonel</div>
+                    </div>
+                    <div class="metadata">
+                        <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
+                        <div class="metadata-info">
+                            <div class="metadata-row">
+                                <div class="metadata-label">OPERATION:</div>
+                                <div class="metadata-value">NAVAL_COMMAND</div>
+                            </div>
+                            <div class="metadata-row">
+                                <div class="metadata-label">TEAM:</div>
+                                <div class="metadata-value">VFVCT</div>
+                            </div>
+                            <div class="metadata-row">
+                                <div class="metadata-label">DATE:</div>
+                                <div class="metadata-value">2025-10-12</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-box">
+                        <h3>PAYMENT REQUIRED</h3>
+                        <div class="payment-amount">1 BTC</div>
+                        <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
                     </div>
                     <div class="deadline">
                         <div class="countdown">
                             <i class="fas fa-clock"></i>
+                            <span>RELEASE IN:</span>
                             <span class="countdown-timer" id="countdown-4"></span>
                         </div>
                     </div>
@@ -779,30 +867,28 @@ CREATE TABLE living_former_commanders (
         </section>
         
         <div class="disclaimer">
-            <h2>DISCLAIMER & GUIDELINES</h2>
-            <p>We follow strict guidelines and terms of service. Our operations target entities that violate digital ethics and freedoms.</p>
+            <h2>OPERATIONAL NOTICE</h2>
+            <p>All data has been encrypted and exfiltrated. Payment is required to receive decryption tools and prevent public data release.</p>
+            <p>Failure to pay before the deadline will result in permanent data loss and public exposure of all compromised information.</p>
             <p>Remember, remember, the fifth of November.</p>
         </div>
         
         <footer>
-            <p>VFVCT - V FOR VENDETTA CYBER TEAM </p>
-            <p>Contact us in https://t.me/c/2609352496/963</p>
+            <p>VFVCT - V FOR VENDETTA CYBER TEAM</p>
+            <p>Contact for payment verification: https://t.me/c/2609352496/963</p>
         </footer>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const targetHeaders = document.querySelectorAll('.target-header');
-            const searchInput = document.getElementById('searchInput');
-            const targetCards = document.querySelectorAll('.target-card');
+            const operationHeaders = document.querySelectorAll('.operation-header');
             
-            // Expand/collapse functionality
-            targetHeaders.forEach(header => {
+            operationHeaders.forEach(header => {
                 header.addEventListener('click', function() {
                     const details = this.nextElementSibling;
                     const isActive = details.classList.contains('active');
                     
-                    document.querySelectorAll('.target-details.active').forEach(activeDetail => {
+                    document.querySelectorAll('.operation-details.active').forEach(activeDetail => {
                         if (activeDetail !== details) {
                             activeDetail.classList.remove('active');
                             activeDetail.previousElementSibling.classList.remove('active');
@@ -819,20 +905,6 @@ CREATE TABLE living_former_commanders (
                 });
             });
             
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                
-                targetCards.forEach(card => {
-                    const targetData = card.getAttribute('data-target').toLowerCase();
-                    
-                    if (targetData.includes(searchTerm) || searchTerm === '') {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-            
             function updateCountdowns() {
                 const deadline = new Date('November 5, 2025 00:00:00 UTC').getTime();
                 const now = new Date().getTime();
@@ -844,9 +916,14 @@ CREATE TABLE living_former_commanders (
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
                 const countdownText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                const headerCountdownText = `${days}d ${hours}h`;
                 
                 document.querySelectorAll('.countdown-timer').forEach(el => {
                     el.innerHTML = countdownText;
+                });
+                
+                document.querySelectorAll('.header-countdown').forEach(el => {
+                    el.innerHTML = headerCountdownText;
                 });
             }
             
