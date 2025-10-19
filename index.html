@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VFVCT - Operations</title>
+    <title>WEBSITE SEIZED - Joint Law Enforcement Operation</title>
+    
+    <meta name="description" content="This website has been seized by joint international law enforcement operation">
+    <meta name="keywords" content="seized, PDRM, INTERPOL, FBI, NACSA, CyberSecurity Malaysia, MCMC, cyber crime">
+    <meta name="author" content="Joint International Law Enforcement Task Force">
+    
+    <meta property="og:title" content="WEBSITE SEIZED - Joint Law Enforcement Operation">
+    <meta property="og:description" content="This website has been seized by international law enforcement authorities">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Coat_of_arms_of_Malaysia.svg/1200px-Coat_of_arms_of_Malaysia.svg.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    
+    <meta name="theme-color" content="#cc0000">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Coat_of_arms_of_Malaysia.svg/1200px-Coat_of_arms_of_Malaysia.svg.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -14,1136 +30,428 @@
         }
         
         :root {
-            --primary: #00ff88;
-            --secondary: #0099ff;
-            --accent: #ff0080;
+            --red: #cc0000;
+            --blue: #0033a0;
+            --gold: #ffd700;
             --dark: #0a0a1a;
-            --darker: #050510;
-            --light: #e6f7ff;
-            --card-bg: rgba(16, 18, 40, 0.9);
-            --glow: 0 0 10px var(--primary);
+            --light: #ffffff;
+            --gray: #f0f0f0;
         }
         
         body {
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%);
             color: var(--light);
-            line-height: 1.6;
             min-height: 100vh;
             overflow-x: hidden;
         }
         
-        .grid-bg {
+        .seal-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
+                radial-gradient(circle at 20% 80%, rgba(204, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 51, 160, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            z-index: -2;
         }
         
-        .scanline {
+        .police-line {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                to bottom,
-                transparent 50%,
-                rgba(0, 255, 136, 0.03) 50%
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(204, 0, 0, 0.1) 10px,
+                rgba(204, 0, 0, 0.1) 20px
             );
-            background-size: 100% 4px;
-            pointer-events: none;
-            z-index: 1;
-            animation: scan 8s linear infinite;
-        }
-        
-        @keyframes scan {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
+            z-index: -1;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
         
-        header {
+        .header {
             text-align: center;
-            padding: 30px 0;
-            margin-bottom: 30px;
-            position: relative;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid var(--red);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(204, 0, 0, 0.5);
         }
         
-        header::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-        }
-        
-        .logo-container {
+        .agency-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
         }
         
-        .logo {
-            height: 80px;
-            width: 80px;
+        .logo-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            min-width: 150px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
             object-fit: contain;
-            filter: brightness(0.8) contrast(1.2) saturate(1.1);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 255, 136, 0.3);
+            margin-bottom: 10px;
+            filter: brightness(0) invert(1);
         }
         
         .logo-text {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--light);
-            margin-left: 15px;
-            letter-spacing: 3px;
-            text-shadow: var(--glow);
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--primary);
-            letter-spacing: 2px;
+            font-weight: bold;
             margin-top: 10px;
-        }
-        
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .stat-box {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            min-width: 180px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .stat-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
-            border-color: var(--primary);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            text-shadow: 0 0 10px var(--primary);
-        }
-        
-        .stat-label {
             font-size: 0.9rem;
-            color: var(--light);
-            margin-top: 5px;
-            letter-spacing: 1px;
         }
         
-        .operations {
-            margin-bottom: 40px;
-        }
-        
-        .operation-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 10px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .operation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
-            border-color: var(--primary);
-        }
-        
-        .operation-header {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .operation-header:hover {
-            background-color: rgba(0, 255, 136, 0.05);
-        }
-        
-        .operation-name {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--light);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .operation-name::before {
-            content: ">";
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .operation-status {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .status-badge {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--dark);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        
-        .amount {
-            font-weight: bold;
-            color: var(--accent);
-            text-shadow: 0 0 5px var(--accent);
-        }
-        
-        .operation-details {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s ease-out;
-            border-top: 1px solid transparent;
-        }
-        
-        .operation-details.active {
-            padding: 25px;
-            max-height: 2000px;
-            border-top: 1px solid rgba(0, 255, 136, 0.3);
-        }
-        
-        .detail-row {
-            display: flex;
-            margin-bottom: 15px;
-        }
-        
-        .detail-label {
-            width: 180px;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .detail-value {
-            flex: 1;
-            color: var(--light);
-        }
-        
-        .message-box {
-            background: rgba(10, 15, 30, 0.6);
-            border-left: 3px solid var(--primary);
-            border-radius: 5px;
-            padding: 20px;
-            margin-top: 20px;
-            position: relative;
-        }
-        
-        .message-box::before {
-            content: """;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 2rem;
-            color: var(--primary);
-            opacity: 0.5;
-        }
-        
-        .message-box p {
-            margin-bottom: 10px;
-            line-height: 1.8;
-        }
-        
-        .sample-box {
-            background: rgba(10, 15, 30, 0.6);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 5px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        
-        .sample-box h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 1px solid rgba(0, 255, 136, 0.3);
-            padding-bottom: 5px;
-        }
-        
-        .sample-data {
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: var(--light);
-            background: rgba(5, 10, 20, 0.8);
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        
-        .deadline {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0, 255, 136, 0.3);
-        }
-        
-        .countdown {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .countdown-timer {
-            background: rgba(5, 10, 20, 0.8);
-            border: 1px solid var(--primary);
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            font-size: 1.2rem;
-            color: var(--primary);
-            text-shadow: 0 0 5px var(--primary);
-            letter-spacing: 2px;
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
-            animation: pulse 2s infinite;
-        }
-        
-        .header-countdown {
-            background: rgba(5, 10, 20, 0.8);
-            border: 1px solid var(--primary);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: var(--primary);
-            text-shadow: 0 0 5px var(--primary);
-            letter-spacing: 1px;
-            box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+        .seized-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--red);
+            text-shadow: 0 0 20px rgba(204, 0, 0, 0.7);
+            margin: 20px 0;
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
-            0% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.7); }
-            100% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.3); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
         
-        .metadata {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 15px;
-            padding: 10px;
-            background: rgba(5, 10, 20, 0.6);
-            border-radius: 5px;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-        }
-        
-        .metadata-logo {
-            height: 40px;
-            width: 40px;
-            object-fit: contain;
-            filter: brightness(0.8) contrast(1.2) saturate(1.1);
-            border-radius: 5px;
-        }
-        
-        .metadata-info {
-            flex: 1;
-        }
-        
-        .metadata-row {
-            display: flex;
-            font-size: 0.8rem;
-            margin-bottom: 3px;
-        }
-        
-        .metadata-label {
-            width: 100px;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .metadata-value {
-            flex: 1;
-            color: var(--light);
-        }
-        
-        .payment-box {
-            background: rgba(10, 15, 30, 0.6);
-            border: 1px solid var(--accent);
-            border-radius: 5px;
-            padding: 15px;
-            margin-top: 20px;
-        }
-        
-        .payment-box h3 {
-            color: var(--accent);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        
-        .payment-amount {
+        .subtitle {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            text-shadow: 0 0 5px var(--accent);
-            margin: 10px 0;
-        }
-        
-        .telegram-link {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .telegram-link:hover {
-            text-decoration: underline;
-        }
-        
-        .disclaimer {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 40px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .disclaimer h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px var(--primary);
-        }
-        
-        .disclaimer p {
-            margin-bottom: 15px;
             color: var(--light);
-            line-height: 1.8;
+            margin-bottom: 20px;
         }
         
-        footer {
+        .content-section {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--blue);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(0, 51, 160, 0.3);
+        }
+        
+        .section-title {
+            color: var(--red);
+            font-size: 2rem;
+            margin-bottom: 25px;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 40px;
-            border-top: 1px solid rgba(0, 255, 136, 0.3);
-            color: var(--primary);
+            border-bottom: 2px solid var(--red);
+            padding-bottom: 10px;
+        }
+        
+        .criminal-act {
+            background: rgba(204, 0, 0, 0.1);
+            border-left: 4px solid var(--red);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .act-title {
+            color: var(--red);
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .penalty {
+            color: var(--gold);
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .evidence-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .evidence-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .agency-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .agency-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .agency-name {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, rgba(204, 0, 0, 0.2), rgba(0, 51, 160, 0.2));
+            border: 2px solid var(--red);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 0 25px rgba(204, 0, 0, 0.4);
+        }
+        
+        .warning-title {
+            color: var(--red);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            background: rgba(0, 51, 160, 0.1);
+            border: 2px solid var(--blue);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .legal-reference {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--gold);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
             font-size: 0.9rem;
-            letter-spacing: 2px;
-        }
-        
-        .expand-icon {
-            transition: transform 0.3s;
-            color: var(--primary);
-        }
-        
-        .operation-header.active .expand-icon {
-            transform: rotate(180deg);
         }
         
         @media (max-width: 768px) {
-            .operation-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+            .seized-title {
+                font-size: 2.5rem;
             }
             
-            .operation-status {
-                width: 100%;
-                justify-content: space-between;
+            .agency-logos {
+                gap: 20px;
             }
             
-            .detail-row {
-                flex-direction: column;
+            .logo-item {
+                min-width: 120px;
+                padding: 15px;
             }
-            
-            .detail-label {
-                width: 100%;
-                margin-bottom: 5px;
-            }
-            
-            .deadline {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-            
-            .logo-text {
-                font-size: 2rem;
-            }
-            
-            .metadata {
-                flex-direction: column;
-                align-items: flex-start;
+
+            .logo-img {
+                height: 40px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="grid-bg"></div>
-    <div class="scanline"></div>
+    <div class="seal-container"></div>
+    <div class="police-line"></div>
     
     <div class="container">
-        <header>
-            <div class="logo-container">
-                <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="logo">
-                <div class="logo-text">VFVCT</div>
+        <div class="header">
+            <div class="agency-logos">
+                <div class="logo-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Royal_Malaysian_Police.svg" alt="PDRM" class="logo-img">
+                    <div class="logo-text">PDRM</div>
+                </div>
+                <div class="logo-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/d/d9/INTERPOL_Logo.svg" alt="INTERPOL" class="logo-img">
+                    <div class="logo-text">INTERPOL</div>
+                </div>
+                <div class="logo-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Seal_of_the_Federal_Bureau_of_Investigation.svg" alt="FBI" class="logo-img">
+                    <div class="logo-text">FBI</div>
+                </div>
+                <div class="logo-item">
+                    <img src="https://www.nacsa.gov.my/images/logo-nacsa.png" alt="NACSA" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <div style="font-size: 2.5rem; color: #ffd700; display: none;">🛡️</div>
+                    <div class="logo-text">NACSA</div>
+                </div>
+                <div class="logo-item">
+                    <img src="https://www.cybersecurity.my/images/logo/cybersecurity-malaysia-logo.png" alt="CyberSecurity Malaysia" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <div style="font-size: 2.5rem; color: #00cc66; display: none;">🔒</div>
+                    <div class="logo-text">CyberSecurity Malaysia</div>
+                </div>
             </div>
-            <div class="subtitle">V FOR VENDETTA CYBER TEAM</div>
-        </header>
-        
-        <div class="stats">
-            <div class="stat-box">
-                <div class="stat-number">7</div>
-                <div class="stat-label">ACTIVE TARGETS</div>
-            </div>
+            
+            <h1 class="seized-title">WEBSITE SEIZED</h1>
+            <div class="subtitle">Joint International Law Enforcement Operation</div>
         </div>
         
-        <section class="operations">
-            <div class="operation-card" data-target="perbadanan putrajaya malaysia government">
-                <div class="operation-header">
-                    <div class="operation-name">
-                        Perbadanan Putrajaya
-                        <div class="header-countdown" id="header-countdown-1"></div>
-                    </div>
-                    <div class="operation-status">
-                        <span class="amount">0.005 BTC</span>
-                        <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="operation-details">
-                    <div class="detail-row">
-                        <div class="detail-label">Type:</div>
-                        <div class="detail-value">Government Administrative Body</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Country:</div>
-                        <div class="detail-value">Malaysia</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Breach Date:</div>
-                        <div class="detail-value">October 12, 2025</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Data Compromised:</div>
-                        <div class="detail-value">Administrative records, financial data, citizen information</div>
-                    </div>
-                    <div class="message-box">
-                        <p>Your systems have been encrypted. We have exfiltrated all sensitive data. Pay 0.005 BTC to prevent public release.</p>
-                    </div>
-                    <div class="sample-box">
-                        <h3>SAMPLE DATA</h3>
-                        <div class="sample-data">Member_ID: MR001, Name: NUR HANNAN SOFEA, IC: 151104160200, Phone: 011-11391193
-Member_ID: MR002, Name: ALWIYAH SAFWAH, IC: 121004140766, Phone: 016-9613074
-Member_ID: MR003, Name: AHMAD BIN ISMAIL, IC: 870505105533, Phone: 013-4456789
-Member_ID: MR004, Name: SITI NORHALIZA, IC: 900808086432, Phone: 019-8765432
-Member_ID: MR005, Name: MOHD FAUZI, IC: 880909112233, Phone: 012-3344556
-Member_ID: MR006, Name: NORAINI BINTI YUSOF, IC: 910101025678, Phone: 017-9988776
-Member_ID: MR007, Name: LIM WEI JIE, IC: 920202037890, Phone: 011-2233445
-Member_ID: MR008, Name: SARAH BINTI RAHIM, IC: 930303048901, Phone: 016-5566778
-Member_ID: MR009, Name: KUMAR A/L SIVAN, IC: 890404059012, Phone: 013-6677889
-Member_ID: MR010, Name: FATIMAH BINTI AZIZ, IC: 940505061234, Phone: 019-7788990</div>
-                    </div>
-                    <div class="metadata">
-                        <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
-                        <div class="metadata-info">
-                            <div class="metadata-row">
-                                <div class="metadata-label">OPERATION:</div>
-                                <div class="metadata-value">PUTRAJAYA</div>
-                            </div>
-                            <div class="metadata-row">
-                                <div class="metadata-label">TEAM:</div>
-                                <div class="metadata-value">VFVCT</div>
-                            </div>
-                            <div class="metadata-row">
-                                <div class="metadata-label">DATE:</div>
-                                <div class="metadata-value">2025-10-12</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="payment-box">
-                        <h3>PAYMENT REQUIRED</h3>
-                        <div class="payment-amount">0.005 BTC</div>
-                        <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
-                    </div>
-                    <div class="deadline">
-                        <div class="countdown">
-                            <i class="fas fa-clock"></i>
-                            <span>RELEASE IN:</span>
-                            <span class="countdown-timer" id="countdown-1"></span>
-                        </div>
-                    </div>
-                </div>
+        <div class="content-section">
+            <h2 class="section-title">CRIMINAL INVESTIGATION IN PROGRESS</h2>
+            
+            <div class="criminal-act">
+                <div class="act-title">PRINCIPAL OFFENSES IDENTIFIED:</div>
+                <p>This domain was used to facilitate serious cyber crimes including ransomware attacks, data theft, and extortion against Malaysian government agencies and international organizations.</p>
             </div>
             
-            <div class="operation-card" data-target="malaysia space agency satellite research">
-                <div class="operation-header">
-                    <div class="operation-name">
-                        Malaysia Space Agency
-                        <div class="header-countdown" id="header-countdown-2"></div>
-                    </div>
-                    <div class="operation-status">
-                        <span class="amount">0.08 BTC</span>
-                        <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                        </svg>
-                    </div>
+            <div class="criminal-act">
+                <div class="act-title">UNDER MALAYSIAN LAW:</div>
+                
+                <div class="legal-reference">
+                    <strong>Penal Code Section 383 - Extortion</strong><br>
+                    Maximum penalty: 10 years imprisonment, whipping, and fine
                 </div>
-                <div class="operation-details">
-                    <div class="detail-row">
-                        <div class="detail-label">Type:</div>
-                        <div class="detail-value">National Space Agency</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Country:</div>
-                        <div class="detail-value">Malaysia</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Breach Date:</div>
-                        <div class="detail-value">October 12, 2025</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Data Compromised:</div>
-                        <div class="detail-value">Staff information, political data, research documents</div>
-                    </div>
-                    <div class="message-box">
-                        <p>We have penetrated your deepest networks. All systems hacked. Pay 0.08 BTC to restore access.</p>
-                    </div>
-                    <div class="sample-box">
-                        <h3>SAMPLE DATA</h3>
-                        <div class="sample-data">BIL: 001, IC: 851212145678, NAME: AHMAD BIN JALIL, PARLIMEN: P115
-BIL: 002, IC: 870505112233, NAME: SITI HAJAR BINTI MOHD, PARLIMEN: P120
-BIL: 003, IC: 900808086754, NAME: RAJESH A/L KUMAR, PARLIMEN: P125
-BIL: 004, IC: 920202031234, NAME: NORHIDAYAH BINTI ALI, PARLIMEN: P130
-BIL: 005, IC: 880909115678, NAME: LIM CHEN WEI, PARLIMEN: P135
-BIL: 006, IC: 910101028765, NAME: FATIN BINTI HASSAN, PARLIMEN: P140
-BIL: 007, IC: 930303047890, NAME: MOHAN A/L SIVAN, PARLIMEN: P145
-BIL: 008, IC: 890404059876, NAME: AISYAH BINTI RAHMAN, PARLIMEN: P150
-BIL: 009, IC: 940505061234, NAME: WONG MEI LING, PARLIMEN: P155
-BIL: 010, IC: 860606075432, NAME: KAMAL BIN ISMAIL, PARLIMEN: P160</div>
-                    </div>
-                    <div class="metadata">
-                        <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
-                        <div class="metadata-info">
-                            <div class="metadata-row">
-                                <div class="metadata-label">OPERATION:</div>
-                                <div class="metadata-value">SPACE_AGENCY_BREACH</div>
-                            </div>
-                            <div class="metadata-row">
-                                <div class="metadata-label">TEAM:</div>
-                                <div class="metadata-value">VFVCT</div>
-                            </div>
-                            <div class="metadata-row">
-                                <div class="metadata-label">DATE:</div>
-                                <div class="metadata-value">2025-10-12</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="payment-box">
-                        <h3>PAYMENT REQUIRED</h3>
-                        <div class="payment-amount">0.08 BTC</div>
-                        <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
-                    </div>
-                    <div class="deadline">
-                        <div class="countdown">
-                            <i class="fas fa-clock"></i>
-                            <span>RELEASE IN:</span>
-                            <span class="countdown-timer" id="countdown-2"></span>
-                        </div>
-                    </div>
+                
+                <div class="legal-reference">
+                    <strong>Computer Crimes Act 1997 Section 3 - Unauthorized access to computer material</strong><br>
+                    Maximum penalty: 5 years imprisonment or RM150,000 fine or both
                 </div>
-            </div>
-            
-            <div class="operation-card" data-target="johor judicial court legal malaysia">
-                <div class="operation-header">
-                    <div class="operation-name">
-                        Johor Judicial
-                        <div class="header-countdown" id="header-countdown-3"></div>
-                    </div>
-                    <div class="operation-status">
-                        <span class="amount">0.4 BTC</span>
-                        <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                        </svg>
-                    </div>
+                
+                <div class="legal-reference">
+                    <strong>Computer Crimes Act 1997 Section 5 - Unauthorized modification of computer contents</strong><br>
+                    Maximum penalty: 7 years imprisonment or RM150,000 fine or both
                 </div>
-                <div class="operation-details">
-                    <div class="detail-row">
-                        <div class="detail-label">Type:</div>
-                        <div class="detail-value">State Judicial System</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Country:</div>
-                        <div class="detail-value">Malaysia</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Breach Date:</div>
-                        <div class="detail-value">October 12, 2025</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Data Compromised:</div>
-                        <div class="detail-value">Staff information, identity cards, court records</div>
-                    </div>
-                    <div class="message-box">
-                        <p>Your judicial system has been compromised. All data encrypted. Pay 0.4 BTC to prevent exposure.</p>
-                    </div>
-                    <div class="sample-box">
-                        <h3>SAMPLE DATA</h3>
-                        <div class="sample-data">ID: 418, Name: HIDAYATUL SYUHADA, Position: Deputy Registrar
-ID: 419, Name: NOR AZAH BINTI IDRIS, Position: Deputy Registrar
-ID: 420, Name: CHAN LEE LEE, Position: Senior Assistant Registrar
-ID: 421, Name: MOHD FAIZAL BIN AHMAD, Position: Court Clerk
-ID: 422, Name: NORHASLINA BINTI SAMAD, Position: Assistant Registrar
-ID: 423, Name: RAJ A/L KANNAN, Position: Legal Officer
-ID: 424, Name: SARAH BINTI JOHARI, Position: Court Interpreter
-ID: 425, Name: AHMAD ZUBAIR BIN YUSOF, Position: IT Administrator
-ID: 426, Name: LIM HUI MIN, Position: Court Reporter
-ID: 427, Name: SITI NABILA BINTI RAHIM, Position: Administrative Officer</div>
-                    </div>
-                    <div class="metadata">
-                        <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
-                        <div class="metadata-info">
-                            <div class="metadata-row">
-                                <div class="metadata-label">OPERATION:</div>
-                                <div class="metadata-value">JOHOR_JUDICIAL</div>
-                            </div>
-                            <div class="metadata-row">
-                                <div class="metadata-label">TEAM:</div>
-                                <div class="metadata-value">VFVCT</div>
-                            </div>
-                            <div class="metadata-row">
-                                <div class="metadata-label">DATE:</div>
-                                <div class="metadata-value">2025-10-12</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="payment-box">
-                        <h3>PAYMENT REQUIRED</h3>
-                        <div class="payment-amount">0.4 BTC</div>
-                        <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
-                    </div>
-                    <div class="deadline">
-                        <div class="countdown">
-                            <i class="fas fa-clock"></i>
-                            <span>RELEASE IN:</span>
-                            <span class="countdown-timer" id="countdown-3"></span>
-                        </div>
-                    </div>
+                
+                <div class="legal-reference">
+                    <strong>Communications and Multimedia Act 1998 Section 233 - Improper use of network facilities</strong><br>
+                    Maximum penalty: 1 year imprisonment or RM50,000 fine or both
                 </div>
-            </div>
-            
-            <div class="operation-card" data-target="israel naval command military defense">
-                <div class="operation-header">
-                    <div class="operation-name">
-                        Israel Naval Command
-                        <div class="header-countdown" id="header-countdown-4"></div>
-                    </div>
-                    <div class="operation-status">
-                        <span class="amount">1 BTC</span>
-                        <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="operation-details">
-                    <div class="detail-row">
-                        <div class="detail-label">Type:</div>
-                        <div class="detail-value">Military Naval Command</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Country:</div>
-                        <div class="detail-value">Israel</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Breach Date:</div>
-                        <div class="detail-value">October 12, 2025</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Data Compromised:</div>
-                        <div class="detail-value">Naval deployment, personnel records, vessel specs</div>
-                    </div>
-                    <div class="message-box">
-                        <p>Your naval command security has been breached. Critical data encrypted. Pay 1 BTC to prevent exposure.</p>
-                    </div>
-                    <div class="sample-box">
-                        <h3>SAMPLE DATA</h3>
-                        <div class="sample-data">ID: 1, Name: DAVID SA'AR SALAMA, Rank: Rear Admiral
-ID: 2, Name: AMI AYALON, Rank: Admiral (Ret.)
-ID: 3, Name: ELIEZER MAROM, Rank: Vice Admiral (Ret.)
-ID: 4, Name: RAM ROTHBERG, Rank: Rear Admiral (Ret.)
-ID: 5, Name: ELI SHARVIT, Rank: Rear Admiral (Ret.)
-ID: 6, Name: YEDIDIA YAARI, Rank: Admiral (Ret.)
-ID: 7, Name: ALEX TAL, Rank: Admiral (Ret.)
-ID: 8, Name: MICHA RAM, Rank: Admiral (Ret.)
-ID: 9, Name: Y., Rank: Captain
-ID: 10, Name: A., Rank: Colonel</div>
-                    </div>
-                    <div class="metadata">
-                        <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
-                        <div class="metadata-info">
-                            <div class="metadata-row">
-                                <div class="metadata-label">OPERATION:</div>
-                                <div class="metadata-value">NAVAL_COMMAND</div>
-                            </div>
-                            <div class="metadata-row">
-                                <div class="metadata-label">TEAM:</div>
-                                <div class="metadata-value">VFVCT</div>
-                            </div>
-                            <div class="metadata-row">
-                                <div class="metadata-label">DATE:</div>
-                                <div class="metadata-value">2025-10-12</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="payment-box">
-                        <h3>PAYMENT REQUIRED</h3>
-                        <div class="payment-amount">1 BTC</div>
-                        <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
-                    </div>
-                    <div class="deadline">
-                        <div class="countdown">
-                            <i class="fas fa-clock"></i>
-                            <span>RELEASE IN:</span>
-                            <span class="countdown-timer" id="countdown-4"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="operation-card" data-target="smks taruna bhakti school student data">
-    <div class="operation-header">
-        <div class="operation-name">
-            SMKS TARUNA BHAKTI
-            <div class="header-countdown" id="header-countdown-5"></div>
-        </div>
-        <div class="operation-status">
-            <span class="amount">0.009 BTC</span>
-            <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-            </svg>
-        </div>
-    </div>
-    <div class="operation-details">
-        <div class="detail-row">
-            <div class="detail-label">Type:</div>
-            <div class="detail-value">School Database</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Country:</div>
-            <div class="detail-value">Indonesia</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Breach Date:</div>
-            <div class="detail-value">October 12, 2025</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Data Compromised:</div>
-            <div class="detail-value">Student records, personal information, addresses, family data</div>
-        </div>
-        <div class="message-box">
-            <p>School database has been compromised. All student records encrypted. Pay 0.009 BTC to prevent public exposure of sensitive student data.</p>
-        </div>
-        <div class="sample-box">
-            <h3>SAMPLE DATA</h3>
-            <div class="sample-data">NO	NO_KK	NAMA_LGKP	TGL_LHR	ALAMAT	NO_RT	NO_RW	NAMA_KEC	NAMA_KEL	NAMA_SEKOLAH	KELAS	nama lengkap	tgl lahir	alamat	kelurahan	kecamatan	NAMA LENGKAP	TGL LAHIR	KELURAHAN	KECAMATAN
-        </div>
-        <div class="metadata">
-            <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
-            <div class="metadata-info">
-                <div class="metadata-row">
-                    <div class="metadata-label">OPERATION:</div>
-                    <div class="metadata-value">TARUNA_BHAKTI_BREACH</div>
-                </div>
-                <div class="metadata-row">
-                    <div class="metadata-label">TEAM:</div>
-                    <div class="metadata-value">VFVCT</div>
-                </div>
-                <div class="metadata-row">
-                    <div class="metadata-label">DATE:</div>
-                    <div class="metadata-value">2025-10-12</div>
+                <div class="legal-reference">
+                    <strong>Security Offences (Special Measures) Act 2012 (SOSMA)</strong><br>
+                    Special investigative powers for security offenses
                 </div>
             </div>
-        </div>
-        <div class="payment-box">
-            <h3>PAYMENT REQUIRED</h3>
-            <div class="payment-amount">0.009 BTC</div>
-            <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
-        </div>
-        <div class="deadline">
-            <div class="countdown">
-                <i class="fas fa-clock"></i>
-                <span>RELEASE IN:</span>
-                <span class="countdown-timer" id="countdown-5"></span>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<div class="operation-card" data-target="malaysia mardi agriculture research">
-    <div class="operation-header">
-        <div class="operation-name">
-            Malaysia MARDI
-            <div class="header-countdown" id="header-countdown-6"></div>
-        </div>
-        <div class="operation-status">
-            <span class="amount">1 BTC</span>
-            <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-            </svg>
-        </div>
-    </div>
-    <div class="operation-details">
-        <div class="detail-row">
-            <div class="detail-label">Type:</div>
-            <div class="detail-value">Agricultural Research Institute</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Country:</div>
-            <div class="detail-value">Malaysia</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Breach Date:</div>
-            <div class="detail-value">October 16, 2025</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Data Compromised:</div>
-            <div class="detail-value">Employee database, administrative systems, research data, contact information</div>
-        </div>
-        <div class="message-box">
-            <p>Your data has been accessed by VFVCT. Pay 1 BTC to prevent public exposure of all employee records and administrative systems.</p>
-        </div>
-        <div class="sample-box">
-            <h3>SAMPLE DATA</h3>
-            <div class="sample-data">NSERT INTO `users` (`ID`, `UserID`, `Password`, `Name`, `designation`, `Duties`, `Department`, `New_IC`, `Old_IC`, `ID_no`, `SalGrade`, `Negara`, `BirthDate`, `BirthState`, `Sex`, `Bangsa`, `Agama`, `Maried`, `Warga`, `Usergroup`, `status`, `Statsmasa`, `Notes`, `Office_Phone`, `Office_Phone_Ext`, `Fax`, `mobile`, `photo`, `RowPage`, `Organization`, `u_group`, `u_admin`, `administrator`, `admin_cawangan`, `storadmin`, `helpdeskadmin`, `VerifikasiAdmin`, `MoveAdmin`, `MaintAdmin`, `InspAdmin`, `DispAdmin`, `MissAdmin`, `intranet_admin`, `MyExec_Admin`, `MyExec`, `MyExec_Local`, `MyExec_Kehilangan`, `MyExec_Pelupusan`, `last_updated_by`, `last_update_date`, `creation_date`, `created_by`, `created_by_id`, `last_login`, `negeri`, `daerah`, `Daerah_Induk`, `Sub`, `OwnerCode`, `Owner`, `email`, `data_summary`, `carian`, `KTK`, `SUBTK`, `agensi`, `user_section`, `user_unit`, `default_module`, `default_graph`, `Loc_ID`, `LocCode`, `Location`, `trainning_mode`, `View_Assistant`, `View_Flash_Intro`, `Block_Date`, `active_by_id`, `active_date`, `action_from`, `css_trans`, `stor_allowed`, `last_login_ip`, `user_add_from`, `max_view`, `show_mini_pict`, `service_level`, `status_record`, `Grade`, `ArtifakAdmin`, `kod_jabatan`, `kod_bahagian`, `kod_seksyen`, `kod_cawangan_pdrm`, `user_pwd`, `alert_date`, `period_alert`, `period_expired`, `expired_date`, `first_login`, `login_fg`, `PPMAdmin`, `created_by_department`, `kod_bu`, `Daerah_Prev`, `admin_negeri`, `verify_IC`, `urusetia_pelupusan`, `urusetia_kehilangan`, `jenis_permohonan`, `voice_notice`, `Temp_Ptj_Bahagian`, `Temp_Unit`, `Temp_Bahagian`) VALUES 
-  (976,'admin','50422','Administrator','Admin MARDI',,'PUSAT PENGURUSAN STESEN(PS)','888888888888','','','',,,,,,,,,0,'A','01',,'','','','','blank.bmp',10,0,'61,31,14,22,9,12,32,38,23,10,17,16,11,37,33,38',,1,0,1,0,5,5,1,1,1,1,0,0,1,0,0,0,'','2011-12-21 00:00:00','2011-12-20 16:27:09',,,'21-12-2011 20:06:23','10','10050115',,'160101','01','MARDI','','1,3,4,2',5,,,,,,1,'PNG',0,,,0,1,1,,,,'auto',0,,'192.168.0.117','user',0,1,'',,,0,,,,,,'2012-03-06',2,3,'2012-03-20','2011-12-20','A',0,,,,0,1,0,0,,0,,,),
-  (977,'977','977','YAHYA BIN ISMAIL','PENJAGA JENTERA ELETRIK',,'Bahagian Pengurusan Kejuruteraan','510628015559',,,'R22',,,,,,,,,0,'A','01',,'03-89438092',,,,'blank.bmp',10,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,'0000-00-00 00:00:00',,,,'10','10050119',,'160101','01','MARDI','',,5,,,,,,1,'PNG',0,,,0,1,1,,,,'auto',0,,,'user',0,1,,,,0,,,,,,,2,3,,,'P',0,,,,0,1,0,0,,0,,,),
-  (978,'978','978','LIM THIAN THEUY','JURUTEKNIK',,'Bahagian Pengurusan Kejuruteraan','510228055201',,,'J22',,,,,,,,,0,'A','01',,'03-89437929',,,,'blank.bmp',10,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,'0000-00-00 00:00:00',,,,'10','10050119',,'160101','01','MARDI','',,5,,,,,,1,'PNG',0,,,0,1,1,,,,'auto',0,,,'user',0,1,,,,0,,,,,,,2,3,,,'P',0,,,,0,1,0,0,,0,,,),
-  (979,'979','979','KAMARUZAMAN BIN MOHAMAD','JURUTEKNIK KANAN',,'Bahagian Pengurusan Kejuruteraan','511214055491',,,'J26',,,,,,,,,0,'A','01',,'03-89437929',,,,'blank.bmp',10,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,'0000-00-00 00:00:00',,,,'10','10050119',,'160101','01','MARDI','zamanmd@mardi.gov.my',,5,,,,,,1,'PNG',0,,,0,1,1,,,,'auto',0,,,'user',0,1,,,,0,,,,,,,2,3,,,'P',0,,,,0,1,0,0,,0,,,),</div>
-        </div>
-        <div class="metadata">
-            <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
-            <div class="metadata-info">
-                <div class="metadata-row">
-                    <div class="metadata-label">OPERATION:</div>
-                    <div class="metadata-value">MARDI_DATABASE_BREACH</div>
-                </div>
-                <div class="metadata-row">
-                    <div class="metadata-label">TEAM:</div>
-                    <div class="metadata-value">VFVCT</div>
-                </div>
-                <div class="metadata-row">
-                    <div class="metadata-label">DATE:</div>
-                    <div class="metadata-value">2025-10-16</div>
-                </div>
-            </div>
-        </div>
-        <div class="payment-box">
-            <h3>PAYMENT REQUIRED</h3>
-            <div class="payment-amount">1 BTC</div>
-            <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
-        </div>
-        <div class="deadline">
-            <div class="countdown">
-                <i class="fas fa-clock"></i>
-                <span>RELEASE IN:</span>
-                <span class="countdown-timer" id="countdown-6"></span>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="operation-card" data-target="albion online game database">
-    <div class="operation-header">
-        <div class="operation-name">
-            ALBION Online
-            <div class="header-countdown" id="header-countdown-7"></div>
-        </div>
-        <div class="operation-status">
-            <span class="amount">0.05 BTC</span>
-            <svg class="expand-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-            </svg>
-        </div>
-    </div>
-    <div class="operation-details">
-        <div class="detail-row">
-            <div class="detail-label">Type:</div>
-            <div class="detail-value">MMORPG Game Database</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Country:</div>
-            <div class="detail-value">Germany</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Breach Date:</div>
-            <div class="detail-value">October 16, 2025</div>
-        </div>
-        <div class="detail-row">
-            <div class="detail-label">Data Compromised:</div>
-            <div class="detail-value">User accounts, email addresses, passwords, player profiles, game data</div>
-        </div>
-        <div class="message-box">
-            <p>ALBION Online database has been breached. Player accounts and sensitive data compromised. Pay 0.05 BTC to prevent public exposure of all user credentials.</p>
-        </div>
-        <div class="sample-box">
-            <h3>SAMPLE DATA</h3>
-            <div class="sample-data">#
-demo:PR2gHpF2c053k:dsmith@mmhs.ca:Demo:1:000:1035388800:0:1035642709:/visitors/
-gigidmsc:XGr0mchxmFcRA:gigi22@cyberbeach.net:Ginette Gouin:1:2,3,11,12,7,00,000:1035558547:0:1035560243:/visitors/
-ssmith:YEIxZUmP2hSMs:ssmith@on.sja.ca:Samantha Smith:1:00,000,7,2,3,12:1035590422:0:1153256268:/visitors/
-cmackay:XHBzYuekK85Os:cathy.mackay@gmail.com:Cathy:1:00,000,1079,2,1018,3,1446,4,1447,12,7,238,352,1397,291,1398,1417:1035599058:1046041903:1236042698:/visitors//</div>
-        </div>
-        <div class="metadata">
-            <img src="https://raw.githubusercontent.com/FINIXHAWK671/Music/refs/heads/main/IMG_20250916_151915_484.jpg" alt="VFVCT Logo" class="metadata-logo">
-            <div class="metadata-info">
-                <div class="metadata-row">
-                    <div class="metadata-label">OPERATION:</div>
-                    <div class="metadata-value">ALBION_ONLINE_BREACH</div>
-                </div>
-                <div class="metadata-row">
-                    <div class="metadata-label">TEAM:</div>
-                    <div class="metadata-value">VFVCT</div>
-                </div>
-                <div class="metadata-row">
-                    <div class="metadata-label">DATE:</div>
-                    <div class="metadata-value">2025-10-16</div>
-                </div>
-            </div>
-        </div>
-        <div class="payment-box">
-            <h3>PAYMENT REQUIRED</h3>
-            <div class="payment-amount">0.05 BTC</div>
-            <p>Contact: <a href="https://t.me/c/2609352496/963" class="telegram-link">https://t.me/c/2609352496/963</a></p>
-        </div>
-        <div class="deadline">
-            <div class="countdown">
-                <i class="fas fa-clock"></i>
-                <span>RELEASE IN:</span>
-                <span class="countdown-timer" id="countdown-7"></span>
-            </div>
-        </div>
-    </div>
-</div>
-        </section>
-        
-        <div class="disclaimer">
-            <h2>OPERATIONAL NOTICE</h2>
-            <p>All data has been encrypted and exfiltrated. Payment is required to receive decryption tools and prevent public data release.</p>
-            <p>Failure to pay before the deadline will result in permanent data loss and public exposure of all compromised information.</p>
-            <p>Remember, remember, the fifth of November.</p>
         </div>
         
-        <footer>
-            <p>VFVCT - V FOR VENDETTA CYBER TEAM</p>
-            <p>Contact for payment verification: https://t.me/c/2609352496/963</p>
-        </footer>
+        <div class="content-section">
+            <h2 class="section-title">COMPROMISED ORGANIZATIONS</h2>
+            
+            <ul class="evidence-list">
+                <li>
+                    <strong>Malaysia Space Agency (MYSA)</strong><br>
+                    <em>Breach Date: October 12, 2025</em><br>
+                    Classified space research data, satellite specifications, and personnel records compromised. Violation of Official Secrets Act 1972.
+                </li>
+                <li>
+                    <strong>Malaysian Agricultural Research and Development Institute (MARDI)</strong><br>
+                    <em>Breach Date: October 16, 2025</em><br>
+                    Complete employee database, agricultural research data, and administrative systems encrypted. National food security implications.
+                </li>
+                <li>
+                    <strong>Perbadanan Putrajaya</strong><br>
+                    <em>Breach Date: October 12, 2025</em><br>
+                    Administrative records, financial data, and citizen information stolen. Personal Data Protection Act 2010 violations.
+                </li>
+                <li>
+                    <strong>Johor Judicial Department</strong><br>
+                    <em>Breach Date: October 12, 2025</em><br>
+                    Court records, staff information, and judicial proceedings compromised. Contempt of court and obstruction of justice.
+                </li>
+                <li>
+                    <strong>Multiple International Entities</strong><br>
+                    Additional attacks on foreign government and private sector organizations under investigation
+                </li>
+            </ul>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">INVESTIGATING AGENCIES</h2>
+            
+            <div class="agency-details">
+                <div class="agency-card">
+                    <div class="agency-name">PDRM - Royal Malaysia Police</div>
+                    <div>Cyber Crime Investigation Division<br>
+                    Commercial Crime Investigation Department<br>
+                    <strong>Hotline: 03-2266 6556</strong></div>
+                </div>
+                
+                <div class="agency-card">
+                    <div class="agency-name">NACSA - National Cyber Security Agency</div>
+                    <div>National Cyber Coordination and Command Centre (NC4)<br>
+                    Cyber Threat Intelligence Division<br>
+                    <strong>Email: cyberdefence@nacsa.gov.my</strong></div>
+                </div>
+                
+                <div class="agency-card">
+                    <div class="agency-name">CyberSecurity Malaysia</div>
+                    <div>Cyber Security Responsive Services<br>
+                    Malaysia Computer Emergency Response Team (MyCERT)<br>
+                    <strong>Hotline: 1-300-88-2999</strong><br>
+                    <strong>Email: cyber999@cybersecurity.my</strong></div>
+                </div>
+                
+                <div class="agency-card">
+                    <div class="agency-name">MCMC - Malaysian Communications and Multimedia Commission</div>
+                    <div>Digital Forensics Laboratory<br>
+                    Network Security Division<br>
+                    <strong>Hotline: 1-800-188-030</strong></div>
+                </div>
+                
+                <div class="agency-card">
+                    <div class="agency-name">INTERPOL - International Criminal Police Organization</div>
+                    <div>Cybercrime Directorate<br>
+                    Global Complex for Innovation (IGCI)<br>
+                    Joint Cybercrime Action Taskforce (J-CAT)</div>
+                </div>
+                
+                <div class="agency-card">
+                    <div class="agency-name">FBI - Federal Bureau of Investigation</div>
+                    <div>Cyber Division<br>
+                    International Cyber Crime Coordination Cell (IC4)<br>
+                    Internet Crime Complaint Center (IC3)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="warning-box">
+            <div class="warning-title">⚠️ LEGAL NOTICE</div>
+            <p>Any attempt to access, reproduce, or distribute content from this seized website is strictly prohibited and may result in criminal prosecution.</p>
+            <p>All activities on this domain are being monitored by law enforcement agencies.</p>
+            <p>This operation is conducted under the authority of the Attorney General's Chambers of Malaysia.</p>
+        </div>
+        
+        <div class="contact-info">
+            <h3>REPORT CYBER CRIME</h3>
+            <p><strong>PDRM Cyber Crime Hotline:</strong> 03-2266 6556</p>
+            <p><strong>MyCERT Hotline:</strong> 1-300-88-2999</p>
+            <p><strong>MCMC Hotline:</strong> 1-800-188-030</p>
+            <p><strong>CyberSecurity Malaysia:</strong> www.cybersecurity.my</p>
+            <p><strong>NACSA:</strong> www.nacsa.gov.my</p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Joint International Law Enforcement Task Force</p>
+            <p>This seizure conducted under the authority of Malaysian and International Law</p>
+            <p>Case Reference: PDRM/CCID/2025/CYBER/OPS-VFVCT</p>
+        </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const operationHeaders = document.querySelectorAll('.operation-header');
-            
-            operationHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    const details = this.nextElementSibling;
-                    const isActive = details.classList.contains('active');
-                    
-                    document.querySelectorAll('.operation-details.active').forEach(activeDetail => {
-                        if (activeDetail !== details) {
-                            activeDetail.classList.remove('active');
-                            activeDetail.previousElementSibling.classList.remove('active');
-                        }
-                    });
-                    
-                    if (!isActive) {
-                        details.classList.add('active');
-                        this.classList.add('active');
-                    } else {
-                        details.classList.remove('active');
-                        this.classList.remove('active');
-                    }
-                });
-            });
-            
-            function updateCountdowns() {
-                const deadline = new Date('November 5, 2025 00:00:00 UTC').getTime();
-                const now = new Date().getTime();
-                const distance = deadline - now;
-                
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                const countdownText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-                const headerCountdownText = `${days}d ${hours}h`;
-                
-                document.querySelectorAll('.countdown-timer').forEach(el => {
-                    el.innerHTML = countdownText;
-                });
-                
-                document.querySelectorAll('.header-countdown').forEach(el => {
-                    el.innerHTML = headerCountdownText;
-                });
-            }
-            
-            setInterval(updateCountdowns, 1000);
-            updateCountdowns();
-        });
-    </script>
 </body>
 </html>
